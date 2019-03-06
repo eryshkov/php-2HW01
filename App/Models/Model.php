@@ -3,18 +3,19 @@
 namespace App\Models;
 use App\Db;
 
-class Model
+abstract class Model
 {
-    protected static $table;
+    protected static $table = '';
 
     public $id;
 
     public static function findAll()
     {
         $db = new Db();
-        $sql = 'SELECT * FROM ' . self::$table;
+        $sql = 'SELECT * FROM ' . static::$table;
+        var_dump($sql);
 
-        return $db->query($sql, [], self::class);
+        return $db->query($sql, [], static::class);
     }
 
 }

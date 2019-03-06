@@ -1,6 +1,5 @@
 <?php
 require __DIR__ . '/../autoload.php';
-use App\Models\Article;
 use App\Db;
 
 $db = new Db();

@@ -13,23 +13,12 @@ class Db
         $this->dbh->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
     }
 
-    public function query(string $sql, array $params = [], $class = null)
+    public function query(string $sql, array $params = [], $class = null): array
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
-        $data = $sth->fetchAll();
-        if (null === $class) {
-            return $data;
-        }
+        $data = $sth->fetchAll(\PDO::FETCH_CLASS, $class);
 
-        $ret = [];
-        foreach ($data as $row) {
-            $obj = new $class();
-            foreach ($row as $name => $value) {
-                $obj->$name = $value;
-            }
-            $ret[] = $obj;
-        }
-        return $ret;
+        return $data;
     }
 }

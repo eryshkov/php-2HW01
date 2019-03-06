@@ -9,11 +9,10 @@ abstract class Model
 
     public $id;
 
-    public static function findAll()
+    public static function findAll(): array
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::$table;
-        var_dump($sql);
 
         return $db->query($sql, [], static::class);
     }

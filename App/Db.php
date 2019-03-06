@@ -19,23 +19,19 @@ class Db
         $this->dbh->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
     }
 
+
     /**
      * @param string $sql
      * @param array $params
      * @param null $class
-     * @return array|null
+     * @return array
      */
-    public function query(string $sql, array $params = [], $class = null): ?array
+    public function query(string $sql, array $params = [], $class = null): array
     {
         $sth = $this->dbh->prepare($sql);
-        $result = $sth->execute($params);
-
-        if (true === $result) {
-            $data = $sth->fetchAll(\PDO::FETCH_CLASS, $class);
-            return $data;
-        }
-
-        return null;
+        $sth->execute($params);
+        $data = $sth->fetchAll(\PDO::FETCH_CLASS, $class);
+        return $data;
     }
 
     /**

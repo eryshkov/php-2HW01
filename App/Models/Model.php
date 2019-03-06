@@ -9,7 +9,7 @@ abstract class Model
 
     public $id;
 
-    public static function findAll(): ?array
+    public static function findAll(): array
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::$table;

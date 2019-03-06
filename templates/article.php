@@ -17,17 +17,36 @@
             <a href="/tests/" class="btn btn-outline-success">Тесты</a>
         </div>
     </div>
+<?php
+if (false !== $article) {
+    ?>
+    <div class="row">
+        <div class="col">
+            <h6><?php echo $article->title; ?></h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p><?php echo $article->content; ?></p>
+        </div>
+    </div>
     <?php
-    foreach ($articles as $article) {
-        ?>
-        <div class="row">
-            <div class="col">
-                <h6><a href="/article.php?id=<?php echo $article->id; ?>"><?php echo $article->title; ?></a></h6>
+} else {
+    ?>
+    <div class="row">
+        <div class="col-auto">
+            <div class="alert alert-danger" role="alert">
+                Новость не найдена
             </div>
         </div>
-        <?php
-    }
-    ?>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a href="/">Вернуться на главную</a>
+        </div>
+    </div>
+    <?php
+} ?>
 </div>
 </body>
 </html>

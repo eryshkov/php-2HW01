@@ -13,8 +13,8 @@
 <div class="container">
     <div class="row" id="menu">
         <div class="col">
-            <a href="/" class="btn btn-outline-primary">Новости</a>
-            <a href="/tests/" class="btn btn-outline-primary">Тесты</a>
+            <a href="/" class="btn btn-outline-success">Новости</a>
+            <a href="/tests/" class="btn btn-outline-success">Тесты</a>
         </div>
     </div>
     <div class="row">

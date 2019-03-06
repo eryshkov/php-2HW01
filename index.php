@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\Article;
+use App\Models\User;
+
 require __DIR__ . '/autoload.php';
 
-$db = new \App\Db();
-$sql = 'SELECT * FROM news';
-$data = $db->query($sql, [], 'App\Models\Article');
-var_dump($data);
+$data = Article::findAll();
+$user = User::findAll();
+
+var_dump($user);

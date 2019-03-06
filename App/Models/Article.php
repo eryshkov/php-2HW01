@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
-class Article
+use App\Db;
+
+class Article extends Model
 {
-    public $id;
+    protected static $table = 'news';
+
     public $title;
     public $content;
+
 }

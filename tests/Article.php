@@ -13,3 +13,7 @@ $id = '80';
 $article = Article::findById($id);
 assert(is_bool($article));
 assert(false === $article);
+
+$limit = 3;
+$articles = Article::getAllLast($limit);
+assert($limit === count($articles));

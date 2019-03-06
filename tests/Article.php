@@ -8,3 +8,8 @@ $id = '1';
 $article = Article::findById($id);
 assert($article instanceof Article);
 assert($id === $article->id);
+
+$id = '80';
+$article = Article::findById($id);
+assert(is_bool($article));
+assert(false === $article);

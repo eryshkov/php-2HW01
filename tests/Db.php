@@ -19,3 +19,7 @@ $params = [
 ];
 $result = $db->execute($query, $params);
 assert(true === $result);
+
+$query = 'SELECT * FROM news';
+$result = $db->execute($query);
+assert(true === $result);

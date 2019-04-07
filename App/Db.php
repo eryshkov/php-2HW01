@@ -8,7 +8,7 @@ class Db
      * @var \PDO
      */
     protected $dbh;
-
+    
     /**
      * Db constructor.
      */
@@ -18,8 +18,8 @@ class Db
         $this->dbh = new \PDO($dsn, 'eug', '123');
         $this->dbh->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
     }
-
-
+    
+    
     /**
      * @param string $sql
      * @param array $params
@@ -30,16 +30,16 @@ class Db
     {
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
-
+        
         if (isset($class)) {
             $data = $sth->fetchAll(\PDO::FETCH_CLASS, $class);
         } else {
             $data = $sth->fetchAll();
         }
-
+        
         return $data;
     }
-
+    
     /**
      * @param string $sql
      * @param array $params
